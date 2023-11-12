@@ -10,7 +10,7 @@ class Alchemist:
         self.__recipes = {}
 
     def getLaboratory(self, Laboratory):
-        return self.__laboratory = Laboratory
+        self.__laboratory = Laboratory
 
     def getRecipes():
         return self.__recipes
@@ -18,4 +18,20 @@ class Alchemist:
     def mixPotion(self, recipe):
 
     def drinkPotion():
+
+
+class Laboratory:
+
+
+class Potion:
+
+class SuperPotion(Potion):
+
+class ExtremePotion(Potion):
+
+class Reagent:
+
+class Herb(Reagent):
+
+class Catalyst(Reagent):      
         
