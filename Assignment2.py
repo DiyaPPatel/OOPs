@@ -43,6 +43,7 @@ class ExtremePotion(Potion):
 class Reagent:
 
 class Herb(Reagent):
+    def
 
 class Catalyst(Reagent):      
         
