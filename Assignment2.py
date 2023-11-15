@@ -1,42 +1,54 @@
+class Laboratory:
+    def __init__(self):
+        self.potions = []
+        self.herbs = []
+        self.catalysts = []
+
+    def mixPotion(self, name, type, stat, primaryIngredient, secondaryIngredient):
+        self.name = name
+        self.type = type
+        self.stat = stat
+        self.primaryIngredient = primaryIngredient
+        self.secondaryIngredient = secondaryIngredient
+        pass
+
+    def addReagent(self,reagent, amount):
+        self.reagent = reagent
+        self.amount = amount
+
+        pass
+
+
 class Alchemist:
     def __init__(self, attack, strength, defense, magic, ranged, necromancy, Laboratory):
-        self.__attack = attack
-        self.__strength = strength
-        self.__defence = defense
-        self.__magic = magic
-        self.__ranged = ranged
-        self.__necromancy = necromancy
-        self.__laboratory = Laboratory
-        self.__recipes = {}
+        self.attack = attack
+        self.strength = strength
+        self.defence = defense
+        self.magic = magic
+        self.ranged = ranged
+        self.necromancy = necromancy
+        self.laboratory = Laboratory
+        self.recipes = {}
 
     def getLaboratory(self, Laboratory):
-        self.__laboratory = Laboratory
+        self.laboratory = Laboratory
 
     def getRecipes(self):
-        return self.__recipes
+        pass
     
     def mixPotion(self, recipe):
+        self.recipe = recipe
 
     def drinkPotion():
         pass
 
+class Potion(Laboratory):
 
-class Laboratory:
-    def __init__(self):
-        self.__potions = []
-        self.__herbs = []
-        self.__catalysts = []
-
-    def mixPotion(self, name, type, stat, primaryIngredient, secondaryIngredient):
-        pass
-
-    def addReagent(reagent, amount):
-        pass
-
-
-class Potion:
+    def __init__(self, name, stat, boost):
+        
 
 class SuperPotion(Potion):
+    def 
 
 class ExtremePotion(Potion):
 
