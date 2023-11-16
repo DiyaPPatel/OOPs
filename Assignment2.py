@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class Laboratory:
     def __init__(self):
         self.__potions = []
@@ -29,23 +31,30 @@ class Alchemist:
         self.__recipes = {}
 
     def getLaboratory(self, Laboratory):
-        self.laboratory = Laboratory
+        return self.laboratory
 
     def getRecipes(self):
-        pass
+        return self.__recipes
     
     def mixPotion(self, recipe):
-        self.recipe = recipe
-
-    def drinkPotion():
         pass
 
-class Potion(Laboratory):
+    def drinkPotion(self):
+        pass
+
+    def collectReagent(self):
+        pass
+
+    def refineReagent(self):
+        pass
+
+class Potion(ABC, Laboratory):
     def __init__(self, name, stat, boost):
         self.__name = name
         self.__stat = stat
         self.__boost = boost
 
+    @abstractmethod
     def calculateBoost(self):
         pass
 
@@ -68,7 +77,8 @@ class SuperPotion(Potion):
         self.__catalyst = catalyst
 
     def calculateBoost(self):
-        super().calculateBoost
+        self.__boost = Herb.self.__potency + (Catalyst.self.__potency * Catalyst.self.__quality) * 1.5
+        return self.__boost
 
     def getHerb(self):
         return self.__herb
@@ -91,7 +101,7 @@ class ExtremePotion(Potion):
     def getPotion(self):
         pass
 
-class Reagent:
+class Reagent(ABC):
     def __init__(self, name, potency):
         self.__name = name
         self.__potency = potency
@@ -103,7 +113,7 @@ class Reagent:
         return self.__name
     
     def getPotency(self):
-        pass
+        return self.__potency
 
     def setPotency(self):
         pass
