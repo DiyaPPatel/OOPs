@@ -15,9 +15,7 @@ class Laboratory:
     def addReagent(self,reagent, amount):
         self.reagent = reagent
         self.amount = amount
-
         pass
-
 
 class Alchemist:
     def __init__(self, attack, strength, defense, magic, ranged, necromancy, Laboratory):
@@ -43,9 +41,8 @@ class Alchemist:
         pass
 
 class Potion(Laboratory):
-
-    def __init__(self, potionName, stat, boost):
-        self.__potionName = potionName
+    def __init__(self, name, stat, boost):
+        self.__name = name
         self.__stat = stat
         self.__boost = boost
 
@@ -53,7 +50,7 @@ class Potion(Laboratory):
         pass
 
     def getName(self):
-        return self.__potionName
+        return self.__name
     
     def getStat(self):
         return self.__stat
@@ -64,7 +61,6 @@ class Potion(Laboratory):
     def setBoost(self):
         pass
         
-
 class SuperPotion(Potion):
     def __init__(self, potionName, stat, boost, herb, catalyst):
         super().__init__(potionName, stat, boost)
@@ -80,18 +76,60 @@ class SuperPotion(Potion):
     def getCatalyst(self):
         return self.__catalyst
     
-
-
 class ExtremePotion(Potion):
     def __init__(self, name, stat, boost, reagent, potion):
         super().__init__(name,stat,boost)
         self.__reagent = reagent
         self.__potion = potion
 
+    def calculateBoost(self):
+        pass
+
+    def getReady(self):
+        pass
+
+    def getPotion(self):
+        pass
+
 class Reagent:
+    def __init__(self, name, potency):
+        self.__name = name
+        self.__potency = potency
+
+    def refine(self):
+        pass
+
+    def getName(self):
+        return self.__name
+    
+    def getPotency(self):
+        pass
+
+    def setPotency(self):
+        pass
 
 class Herb(Reagent):
-    def
+    def __init__(self, name, potency):
+        super().__init__(name, potency)
+        self.__grimy = True
 
-class Catalyst(Reagent):      
+    def refine(self):
+        pass
+
+    def getGrimy(self):
+        return self.__grimy
+    
+    def setGrimy(self):
+        pass
+
+class Catalyst(Reagent): 
+    def __init__(self, name, potency, quality):
+        super().__init__(name, potency)
+        self.__quality = quality
+
+    def refine(self):
+        pass
+
+    def getQuality(self):
+        return self.__quality     
         
