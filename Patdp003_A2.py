@@ -1,3 +1,12 @@
+'''
+File: Patdp003_A2.py
+Description:
+Author: Diya Patel
+StudentID: 110399790
+EmailID: patdp003@mymail.unisa.edu.au
+This is my own work as defined by the University's Academic Misconduct Policy.
+
+'''
 from abc import ABC, abstractmethod
 
 class Laboratory:
