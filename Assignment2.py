@@ -93,7 +93,7 @@ class ExtremePotion(Potion):
         self.__potion = potion
 
     def calculateBoost(self):
-        pass
+        Reagent.self.__potency * 3
 
     def getReady(self):
         pass
@@ -106,6 +106,7 @@ class Reagent(ABC):
         self.__name = name
         self.__potency = potency
 
+    @abstractmethod
     def refine(self):
         pass
 
@@ -124,7 +125,11 @@ class Herb(Reagent):
         self.__grimy = True
 
     def refine(self):
-        pass
+        if self.__grimy != True:
+            refinedHerb = self.___potency * 2.5
+            print("Refined herb = ", refinedHerb)
+        else:
+            print("Refined herb = ")
 
     def getGrimy(self):
         return self.__grimy
@@ -138,7 +143,14 @@ class Catalyst(Reagent):
         self.__quality = quality
 
     def refine(self):
-        pass
+        if self.__quality < 8.9:
+            refinedQuality = self.__quality + 1.1
+            print("Refined Catalyst Quality = ", refinedQuality)
+
+        elif self.__quality > 8.9:
+            refinedQuality = 10
+            print("Refined Quality = ", refinedQuality,"/nIt cannot be refined any further")
+
 
     def getQuality(self):
         return self.__quality     
