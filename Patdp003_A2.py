@@ -18,6 +18,7 @@ class Laboratory:
         
 
     def mixPotion(self, name, type, stat, primaryIngredient, secondaryIngredient):
+        """Mix potion is added in the potion list."""
         self.name = name
         self.type = type
         self.stat = stat
@@ -26,6 +27,7 @@ class Laboratory:
         self.potions.append({"name":self.name,"type":self.type,"stat":self.stat,"primaryIngredient":self.primaryIngredient,"secondaryIngredient":self.secondaryIngredient})
 
     def addReagent(self,reagent, amount):
+        """New reagent is added."""
         if type(reagent).__name__ == "Herb":
             self.herbs.append(reagent)
         elif type(reagent).__name__ == "Catalyst":
@@ -47,18 +49,19 @@ class Alchemist:
     def getLaboratory():
         return Laboratory()
 
-
     def getRecipes(recipe):
         for x in recipe:
             print(x["name"], x["primaryIngredient"], x["secondaryIngredient"])
     
     def mixPotion(recipe):
+        """Mix potion from Laboratory is called."""
         lab.mixPotion(recipe["name"],recipe["type"],recipe["stat"],recipe["primaryIngredient"],recipe["secondaryIngredient"])
 
     def drinkPotion(potion):
         pass
 
     def collectReagent(reagent, amount):
+        """Reagents are collected."""
         lab.addReagent(reagent, amount)
 
     def refineReagent(self):
@@ -72,6 +75,7 @@ class Potion(ABC):
 
     @abstractmethod
     def calculateBoost(self):
+        """This method is and abstractmethod."""
         pass
 
     def getName(self):
@@ -93,6 +97,7 @@ class SuperPotion(Potion):
         self.catalyst = catalyst
 
     def calculateBoost(herb,catalyst):
+        """Method is called from the parent class."""
         herbPotency = herb.getPotency()
         catalystPotency = catalyst.getPotency()
         catalystQuality = catalyst.getQuality()
@@ -113,7 +118,7 @@ class ExtremePotion(Potion):
         self.potion = potion
 
     def calculateBoost(reagent,potion):
-
+        """This method is called from the parent class."""
         reagentPotency = reagent.getPotency()
         superPotionBoost = potion.getBoost()
 
@@ -133,6 +138,7 @@ class Reagent(ABC):
 
     @abstractmethod
     def refine(self):
+        """This is an abstract method for the Reagent class."""
         pass
     
     def getName(self):
@@ -150,6 +156,7 @@ class Herb(Reagent):
         self.grimy = grimy
 
     def refine(self):
+        """This method is called from the oarent class."""
         if self.grimy != True:
             refinedHerb = self.potency * 2.5
             print("Refined herb = ", refinedHerb)
@@ -168,6 +175,7 @@ class Catalyst(Reagent):
         self.quality = quality
 
     def refine(self):
+        """This method is called from the parenr class."""
         if self.quality < 8.9:
             refinedQuality = self.__quality + 1.1
             print("Refined Catalyst Quality = ", refinedQuality)
